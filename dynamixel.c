@@ -20,7 +20,7 @@ void dynamixel_init(void)
 	UBRR0H = ((F_CPU / 16 + DYNAMIXEL_BAUDRATE / 2) / DYNAMIXEL_BAUDRATE - 1) >> 8;
 	UBRR0L = ((F_CPU / 16 + DYNAMIXEL_BAUDRATE / 2) / DYNAMIXEL_BAUDRATE - 1);
 	
-	// Enable UART TX, RX, and RX interupt
+	// Enable UART TX, RX, and RX interrupt
 	UCSR0B |= (1 << TXEN0);
 	UCSR0B |= (1 << RXEN0);
 	UCSR0B |= (1 << RXCIE0);

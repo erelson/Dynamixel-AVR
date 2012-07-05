@@ -9,6 +9,12 @@ volatile uint8_t dynamixel_txpacket[DYNAMIXEL_PACKET_SIZE];
 volatile uint8_t dynamixel_rxpacket[DYNAMIXEL_PACKET_SIZE];
 volatile uint8_t dynamixel_rxindex = 0;
 
+
+//handler declaration (this pertains to interrupts and needs interrupt.h)
+// The vector name (USART_RXC_vect in this case)
+// will vary from part to part, based on the
+// name given to that vector in your part's
+// datasheet.  
 ISR(USART_RX_vect)
 {
 	dynamixel_rxpacket[dynamixel_rxindex++] = UDR0;
